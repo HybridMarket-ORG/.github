@@ -1,12 +1,16 @@
 # HybridMarket Organization Configuration
 
-This repository houses the organization-wide profile, community health files, and global defaults for [HybridMarket-ORG](https://github.com/HybridMarket-ORG).
+This repository maintains the organization-level profile, global configurations, and architectural documentation for [HybridMarket-ORG](https://github.com/HybridMarket-ORG).
 
-### Profile
-The primary organization profile README is located at [`profile/README.md`](profile/README.md) and rendered directly on the [HybridMarket GitHub Organization Page](https://github.com/HybridMarket-ORG).
+### Profile Presentation
+The primary organization landing page is defined in [`profile/README.md`](profile/README.md), which is automatically rendered on the [HybridMarket GitHub Organization Page](https://github.com/HybridMarket-ORG).
 
-### Ecosystem Repositories
-* [Website](https://github.com/HybridMarket-ORG/Website) - Official web marketplace and client portal.
-* [HybridLicense](https://github.com/HybridMarket-ORG/HybridLicense) - Self-hosted cryptographic license management system.
-* [HybridShield](https://github.com/HybridMarket-ORG/HybridShield) - High-performance eBPF/XDP DDoS mitigation engine.
-* [HybridObfuscator](https://github.com/HybridMarket-ORG/HybridObfuscator) - Enterprise multi-language code obfuscation and RASP protection.
+### Active Ecosystem Repositories
+* [**Website**](https://github.com/HybridMarket-ORG/Website) - Official marketplace, client portal, billing engine, and Discord Bot API.
+* [**HybridLicense**](https://github.com/HybridMarket-ORG/HybridLicense) - Self-hosted cryptographic license management server with PASETO and HWID locking.
+* [**HybridShield**](https://github.com/HybridMarket-ORG/HybridShield) - High-throughput eBPF/XDP DDoS mitigation engine and kernel packet filter.
+* [**HybridObfuscator**](https://github.com/HybridMarket-ORG/HybridObfuscator) - Enterprise multi-language code obfuscation and RASP anti-tamper framework.
+
+---
+
+&copy; 2026 HybridMarket. All rights reserved.

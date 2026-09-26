@@ -1,53 +1,113 @@
-# HybridMarket
+<div align="center">
 
-High-Performance Digital Storefront, Licensing Infrastructure, and Security Engineering Solutions.
+# HYBRIDMARKET
+
+**High-Performance Software Distribution, Cryptographic Licensing, and Kernel-Level Security Infrastructure**
+
+[![Official Website](https://img.shields.io/badge/Website-hybridmarket.org-0969da?style=flat-square)](https://hybridmarket.org)
+[![PHP](https://img.shields.io/badge/PHP-8.4-777BB4?style=flat-square&logo=php&logoColor=white)](https://php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
+[![Go](https://img.shields.io/badge/Go-1.24-00ADD8?style=flat-square&logo=go&logoColor=white)](https://go.dev)
+[![Vue](https://img.shields.io/badge/Vue-3-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)](https://vuejs.org)
+[![eBPF/XDP](https://img.shields.io/badge/Linux-eBPF_%2F_XDP-FCC624?style=flat-square&logo=linux&logoColor=black)](https://ebpf.io)
+[![PASETO](https://img.shields.io/badge/Crypto-PASETO_v4-10B981?style=flat-square)](https://paseto.io)
+
+[Platform Overview](#platform-overview) &bull; [Core Ecosystem](#core-ecosystem) &bull; [System Architecture](#system-architecture) &bull; [Technical Pillars](#technical-pillars) &bull; [Security Policy](#security--disclosure)
 
 ---
 
-### Overview
+</div>
 
-HybridMarket provides an integrated ecosystem for software distribution, automated cryptographic licensing, hardware-enforced access control, and kernel-level network protection. Built for high reliability, zero-trust validation, and mission-critical deployment.
+## Platform Overview
+
+HybridMarket designs and maintains an integrated, high-reliability software distribution ecosystem. The platform unifies end-to-end digital commerce, automated cryptographic license management, hardware-locked client verification, low-latency edge packet filtering, and runtime application self-protection.
+
+Every component is engineered for zero-trust environments, deterministic execution, and mission-critical production workloads.
 
 ---
 
-### Core Ecosystem
+## Core Ecosystem
 
-| Product | Domain | Description |
+| Repository | Domain | Core Stack | Function & Key Capabilities |
+| :--- | :--- | :--- | :--- |
+| [**Website**](https://github.com/HybridMarket-ORG/Website) | Commercial Platform & Portal | PHP 8.4, Laravel 13, Vue 3, Inertia.js | Digital storefront, customer management dashboard, multi-gateway billing (Stripe, PayPal, Crypto), automated fulfillment, and Discord Bot integration API. |
+| [**HybridLicense**](https://github.com/HybridMarket-ORG/HybridLicense) | Licensing Engine & Auditing | Go, TypeScript, PostgreSQL | High-throughput license server delivering signed PASETO v4 tokens, multi-platform HWID locking, IP enforcement, and hash-chained audit verification. |
+| [**HybridShield**](https://github.com/HybridMarket-ORG/HybridShield) | Network Edge & Packet Defense | C, Go, Linux eBPF/XDP | High-performance enterprise DDoS mitigation engine and kernel packet filter operating via native XDP hooks and AF_XDP zero-copy socket buffers. |
+| [**HybridObfuscator**](https://github.com/HybridMarket-ORG/HybridObfuscator) | Code Protection & RASP | Go, Python, React | Multi-target binary and bytecode obfuscator with RASP runtime anti-tamper, debugger traps, integrity guards, and SOC telemetry monitoring. |
+
+---
+
+## System Architecture
+
+The following diagram illustrates how the core HybridMarket systems interconnect to provide secure distribution, network mitigation, and client verification:
+
+```mermaid
+flowchart TD
+    subgraph Edge ["Network Boundary"]
+        Traffic["Incoming Inbound Traffic"] --> Shield["HybridShield: eBPF / XDP Filter"]
+        Shield -- "Drop Malicious / SynFlood / UDP Amp" --> Blackhole["Packet Drop"]
+        Shield -- "Clean Forwarding" --> Ingress["Protected Infrastructure"]
+    end
+
+    subgraph Platform ["HybridMarket Core Web Platform"]
+        Ingress --> Store["Website (Storefront & Customer Portal)"]
+        Store --> Billing["Payment Processors (Stripe / PayPal / Crypto)"]
+        Store --> WebAPI["Discord Bot & External Management API"]
+    end
+
+    subgraph SecurityControl ["Licensing & Integrity Enforcement"]
+        ClientApp["Protected Client Application"] --> Obf["HybridObfuscator (RASP & Anti-Tamper)"]
+        Obf --> LicenseClient["Cryptographic License Handshake"]
+        LicenseClient --> LicenseServer["HybridLicense: Verification Server"]
+        LicenseServer --> TokenGen["PASETO v4 Signed Tokens"]
+        LicenseServer --> AuditTrail["Hash-Chained Audit Trail"]
+    end
+
+    Store -. "Provision License" .-> LicenseServer
+```
+
+---
+
+## Technical Pillars
+
+### 1. Cryptographic Trust & Device Binding
+- **PASETO v4 Signed Tokens**: Modern public-key cryptography (Ed25519) ensuring tamper-proof client authorization without token malleability.
+- **Hardware Profile Hashing (HWID)**: Multi-attribute hardware fingerprinting (CPU ID, motherboard UUID, disk serials, MAC addresses) providing deterministic machine binding.
+- **Hash-Chained Audit Trail**: Cryptographically linked transaction and validation history preventing state manipulation.
+
+### 2. High-Throughput Edge Defense
+- **Kernel-Level eBPF/XDP**: Direct execution inside the Linux network driver path before socket allocation or memory buffering.
+- **AF_XDP Zero-Copy**: Ultra-low overhead packet inspection capable of filtering millions of packets per second under intense volumetric attacks.
+- **Stateful Rate Limiting**: Dynamic IP and subnet connection tracking with immediate hardware blacklist synchronization.
+
+### 3. Application Self-Protection (RASP)
+- **Multi-Language Transformations**: Control flow flattening, string encryption, dead code synthesis, and opcode mutation.
+- **Runtime Integrity Checks**: Anti-debugging vectors, memory scan detection, environment sanity checks, and automated process termination upon compromise.
+
+### 4. Enterprise Storefront & API Integration
+- **Modern Monolithic Agility**: Laravel 13 backend paired with Vue 3 / Inertia.js single-page client interface.
+- **Deterministic Billing**: Atomic transaction handling supporting fiat gateways alongside non-custodial crypto payment paths.
+- **Secured Webhook & Bot APIs**: Granular API token authorization, HMAC request verification, and audit logging.
+
+---
+
+## Security & Disclosure
+
+Security is fundamental to our development lifecycle. If you discover a potential vulnerability or security issue across any HybridMarket repository or live deployment, please adhere to our coordinated disclosure process:
+
+| Protocol | Contact | Expected SLA |
 | :--- | :--- | :--- |
-| **Website** | Web Platform & Store | Core marketplace, customer management portal, automated order lifecycle, multi-gateway billing (Stripe, PayPal, Crypto), and developer APIs. |
-| **HybridLicense** | Licensing & Verification | Self-hosted cryptographic license management server utilizing PASETO tokens, HWID hardware locking, IP enforcement, and hash-chained audit trails. |
-| **HybridShield** | Network Defense | High-performance enterprise eBPF/XDP DDoS mitigation engine and kernel packet filter designed for edge Linux servers and high-throughput infrastructure. |
-| **HybridObfuscator** | Software Protection | Enterprise multi-language code obfuscation, RASP runtime anti-tamper, and threat telemetry monitoring (Java, JavaScript, Python, Lua, Go, C++, C#). |
+| **Direct Security Contact** | security@hybridmarket.org | Initial acknowledgment within 24 hours |
+| **General Architecture Support** | hello@hybridmarket.org | Response within 1-2 business days |
+
+Please refrain from opening public GitHub issues for undisclosed security vulnerabilities.
 
 ---
 
-### Engineering & Technology Stack
+<div align="center">
 
-* **Backend & Microservices**: PHP 8.4, Laravel 13, Go, C/eBPF, Python
-* **Frontend & Dashboards**: Vue 3, Inertia.js, Tailwind CSS, Vite
-* **Cryptography & Tokens**: PASETO v4, ChaCha20-Poly1305, Ed25519, SHA-256 HMAC
-* **Low-Level Networking**: Linux XDP (eBPF), AF_XDP Sockets, Zero-Copy Packet Processing
-* **Data & Queues**: PostgreSQL, SQLite, Redis, Hash-Chained Audit Logs
-
----
-
-### Vulnerability Disclosure & Security
-
-Security is foundational to all HybridMarket systems. If you identify a potential security issue or vulnerability in any of our software or infrastructure:
-
-* Email: security@hybridmarket.org
-* Response SLA: Initial acknowledgment within 24 hours.
-
-Please do not disclose potential vulnerabilities in public issue trackers.
-
----
-
-### Contact & Resources
-
-* Official Website: [hybridmarket.org](https://hybridmarket.org)
-* Documentation: [hybridmarket.org/docs](https://hybridmarket.org/docs)
-* General Inquiries: hello@hybridmarket.org
-
----
+**HybridMarket Organization** &bull; [hybridmarket.org](https://hybridmarket.org)
 
 &copy; 2026 HybridMarket. All rights reserved.
+
+</div>
