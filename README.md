@@ -10,6 +10,7 @@ The primary organization landing page is defined in [`profile/README.md`](profil
 * [**HybridLicense**](https://github.com/HybridMarket-ORG/HybridLicense) - Self-hosted cryptographic license management server with PASETO and HWID locking.
 * [**HybridShield**](https://github.com/HybridMarket-ORG/HybridShield) - High-throughput eBPF/XDP DDoS mitigation engine and kernel packet filter.
 * [**HybridObfuscator**](https://github.com/HybridMarket-ORG/HybridObfuscator) - Enterprise multi-language code obfuscation and RASP anti-tamper framework.
+* [**DiscordBot**](https://github.com/HybridMarket-ORG/DiscordBot) - Enterprise Discord bot for customer role sync, automated license delivery, and remote management.
 
 ---
 

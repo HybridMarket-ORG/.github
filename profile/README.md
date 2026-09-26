@@ -34,6 +34,7 @@ Every component is engineered for zero-trust environments, deterministic executi
 | [**HybridLicense**](https://github.com/HybridMarket-ORG/HybridLicense) | Licensing Engine & Auditing | Go, TypeScript, PostgreSQL | High-throughput license server delivering signed PASETO v4 tokens, multi-platform HWID locking, IP enforcement, and hash-chained audit verification. |
 | [**HybridShield**](https://github.com/HybridMarket-ORG/HybridShield) | Network Edge & Packet Defense | C, Go, Linux eBPF/XDP | High-performance enterprise DDoS mitigation engine and kernel packet filter operating via native XDP hooks and AF_XDP zero-copy socket buffers. |
 | [**HybridObfuscator**](https://github.com/HybridMarket-ORG/HybridObfuscator) | Code Protection & RASP | Go, Python, React | Multi-target binary and bytecode obfuscator with RASP runtime anti-tamper, debugger traps, integrity guards, and SOC telemetry monitoring. |
+| [**DiscordBot**](https://github.com/HybridMarket-ORG/DiscordBot) | Community & Operations | Node.js 24, Discord.js v14, Components V2 | Enterprise Discord bot providing automated customer role synchronization, instant license delivery, HWID reset handling, live server telemetry, and remote administration. |
 
 ---
 
